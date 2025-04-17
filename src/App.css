@@ -1,0 +1,176 @@
+:root {
+  --bgcolor: #F4F6FA;
+  --textcolor: #000000;
+  --textcolor2: #637283;
+  --brr: 24px;
+  --fs: 16px;
+  --smallfs: 14px;
+  font-size: 10px;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('./assets/fonts/ico/icomoon.ttf') format('truetype'),
+    url('./assets/fonts/ico/icomoon.ttf') format('woff'),
+    url('./assets/fonts/ico/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Whatsapp:before {
+  content: "\e913";
+}
+
+.icon-vk:before {
+  content: "\e900";
+}
+.icon-dzen:before {
+  content: "\e901";
+}
+.icon-yandex:before {
+  content: "\e902";
+}
+.icon-Telegram:before {
+  content: "\e903";
+}
+.icon-plus:before {
+  content: "\e904";
+}
+.icon-arrw:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-rightangw:before {
+  content: "\e906";
+  color: #fff;
+}
+.icon-leftangw:before {
+  content: "\e907";
+  color: #fff;
+}
+.icon-leftw:before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-rightw:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-upd:before {
+  content: "\e90a";
+  color: #fff;
+}
+.icon-upw:before {
+  content: "\e90b";
+  color: #fff;
+}
+.icon-arr:before {
+  content: "\e90c";
+}
+.icon-rightang:before {
+  content: "\e90d";
+}
+.icon-leftang:before {
+  content: "\e90e";
+}
+.icon-left:before {
+  content: "\e90f";
+}
+.icon-right:before {
+  content: "\e910";
+}
+.icon-down:before {
+  content: "\e911";
+}
+.icon-up:before {
+  content: "\e912";
+}
+
+
+@import url(./assets/styles/Header.css);
+@import url(./assets/styles/Slider.css);
+@import url(./assets/styles/Cases.css);
+@import url(./assets/styles/Solutions.css);
+@import url(./assets/styles/Footer.css);
+@import url(./assets/styles/PostPage.css);
+
+@font-face {
+  font-family: 'Onest';
+  src: url('./assets/fonts/Onest/Onest-VariableFont_wght.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Unbounded';
+  src: url('./assets/fonts/Unbounded/Unbounded-Bold.woff2') format('woff2');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Onest';
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.lcontainer {
+  width: 100%;
+  padding: 0 60px;
+}
+
+.outer__container {
+  width: 100%;
+  padding: 0 25px;
+}
+
+.inner__container {
+  width: 100%;
+  padding: 0 35px;
+}
+
+
+@media (max-width:768px) {
+  .lcontainer {
+    padding: 0 20px;
+  }
+  .outer__container {
+    width: 100%;
+    padding: 0 5px;
+  }
+  
+  .inner__container {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+

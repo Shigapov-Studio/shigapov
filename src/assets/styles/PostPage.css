@@ -1,0 +1,12 @@
+.postcontent {
+  width: 100%;
+  padding: 80px 0;
+}
+
+.postcontent img {
+  width: 50%;
+}
+
+.postcontent div {
+  font-size: 1.8rem;
+}

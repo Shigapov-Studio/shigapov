@@ -12,7 +12,7 @@ const PostsList = () => {
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
-    fetch('https://a1w.ru/wp-json/wp/v2/posts?_embed', { signal: controller.signal })
+    fetch('https://wp.shigapov.studio/wp-json/wp/v2/posts?_embed', { signal: controller.signal })
       .then((response) => {
         if (!response.ok) throw new Error('Ошибка загрузки постов');
         return response.json();

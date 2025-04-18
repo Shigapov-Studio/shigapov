@@ -16,14 +16,14 @@
     width: 50%;
     display: flex;
     flex-direction: column;
-    max-width: 500px;
+    /* max-width: 500px; */
     padding-bottom: 120px;
 }
 
 .slide__heading {
     font-size: 6rem;
     font-weight: 700;
-    line-height: 55px;
+    line-height: 5.5rem;
     margin-bottom: 45px;
 }
 
@@ -41,11 +41,11 @@
 }
 
 .slide__right--inner {
-    width: 535px;
+    /* width: 535px; */
     display: flex;
     flex-direction: column;
     justify-content: end;
-    margin-right: -20px;
+    /* margin-right: -20px; */
     margin-bottom: -30px;
 }
 
@@ -229,3 +229,9 @@
         line-height: 1;
     }
 }
+
+/* @media (min-width: 1440px) {
+    .slide__heading {
+        font-size: 8rem;
+    }
+} */

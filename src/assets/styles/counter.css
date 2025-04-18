@@ -1,0 +1,42 @@
+.counter__wrapper {
+  display: flex;
+  /* height: 335px; */
+  overflow: hidden;
+  position: relative;
+}
+
+.number {
+  display: flex;
+  flex-direction: column;
+  animation-name: count;
+  animation-timing-function: cubic-bezier(0.68, -0.1, 0.265, 1.1);
+  animation-fill-mode: forwards;
+}
+
+.number:last-child {
+  animation-delay: .2s;
+  animation-duration: 1.7s;
+  transform: translateY(-800%);
+}
+
+.number:first-child {
+  transform: translateY(-500%);
+  animation-duration: 1.4s;
+}
+
+.current-number {
+  font-size: 44rem;
+  font-weight: 700;
+  line-height: 34rem;
+  /* width: 300px;
+  background: white; */
+}
+
+
+@keyframes count {
+  0% {
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import SliderButton from './SliderButton';
+import Counter from './Counter';
 
 function Slide1() {
-  const [projectsCounter, setCounter] = useState(0);
   const isVisible = window.innerWidth > 1025;
 
   return (
     <div className="slide__content inner__container">
       <div className="slide__left">
-        <h1 className="slide__heading">Разработка сайтов под ключ</h1>
+        <h1 className="slide__heading">Разработка <br /> сайтов под ключ</h1>
         <p className="slide__left--text">
           Недорогие полнофункциональные решения<br /> для малого бизнеса и ИП
         </p>
@@ -19,7 +19,7 @@ function Slide1() {
         <div className="slide__right">
           <div className="slide__right--inner">
             <p className="slide__right--text">Проектов реализовано</p>
-            <span className="slide__counter">{projectsCounter}</span>
+            <Counter />
           </div>
         </div>
       )}
@@ -31,7 +31,7 @@ function Slide2() {
   return (
     <div className="slide__content inner__container">
       <div className="slide__left">
-        <h1 className="slide__heading">Разработка сайтов под ключ</h1>
+        <h1 className="slide__heading">Разработка<br /> сайтов под ключ</h1>
         <p className="slide__left--text">
           Недорогие полнофункциональные решения<br /> для малого бизнеса и ИП
         </p>
@@ -45,7 +45,7 @@ function Slide3() {
   return (
     <div className="slide__content inner__container">
       <div className="slide__left">
-        <h1 className="slide__heading">Разработка сайтов под ключ</h1>
+        <h1 className="slide__heading">Разработка<br /> сайтов под ключ</h1>
         <p className="slide__left--text">
           Недорогие полнофункциональные решения<br /> для малого бизнеса и ИП
         </p>
@@ -59,7 +59,7 @@ function Slide4() {
   return (
     <div className="slide__content inner__container">
       <div className="slide__left">
-        <h1 className="slide__heading">Разработка сайтов под ключ</h1>
+        <h1 className="slide__heading">Разработка<br /> сайтов под ключ</h1>
         <p className="slide__left--text">
           Недорогие полнофункциональные решения<br /> для малого бизнеса и ИП
         </p>

@@ -110,6 +110,7 @@
 @import url(./assets/styles/Solutions.css);
 @import url(./assets/styles/Footer.css);
 @import url(./assets/styles/PostPage.css);
+@import url(./assets/styles/counter.css);
 
 @font-face {
   font-family: 'Onest';
@@ -174,3 +175,50 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (min-width: 1640px) {
+  :root {
+    --bgcolor: #F4F6FA;
+    --textcolor: #000000;
+    --textcolor2: #637283;
+    --brr: 24px;
+    --fs: 16px;
+    --smallfs: 14px;
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1880px) {
+  :root {
+    --bgcolor: #F4F6FA;
+    --textcolor: #000000;
+    --textcolor2: #637283;
+    --brr: 24px;
+    --fs: 16px;
+    --smallfs: 14px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 2000px) {
+  :root {
+    --bgcolor: #F4F6FA;
+    --textcolor: #000000;
+    --textcolor2: #637283;
+    --brr: 24px;
+    --fs: 16px;
+    --smallfs: 14px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 2400px) {
+  :root {
+    --bgcolor: #F4F6FA;
+    --textcolor: #000000;
+    --textcolor2: #637283;
+    --brr: 24px;
+    --fs: 16px;
+    --smallfs: 14px;
+    font-size: 18px;
+  }
+}

@@ -4,15 +4,17 @@ import Solutions from "../components/Solutions";
 import PostsList from "../components/PostList";
 import AnimatedHeading from '../components/AnimatedHeading';
 import casesImg from '../assets/figure.svg';
-import solutionsImg from '../assets/figure2.svg'
+import solutionsImg from '../assets/figure2.svg';
+import useHeaderStore from "../store/useHeaderStore";
 
-const Home = ({ headerHeight }) => {
+const Home = () => {
+  const headerHeight = useHeaderStore((state) => state.headerHeight);
   return (
     <>
       <div className='outer__container'>
         <section
         className='section__one'
-        style={{ paddingTop: `${headerHeight}px` }}>
+        style={{paddingTop: `${headerHeight}px`}}>
           <Slider />
         </section>
       </div>

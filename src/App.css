@@ -153,6 +153,32 @@ main {
   padding: 0 35px;
 }
 
+.rainbow {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.5%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.rainbow__orange {
+  background-color: #FF9225;
+  height: 100%;
+}
+
+.rainbow__red {
+  background-color: #EB3700;
+  height: 100%;
+}
+
+.rainbow__purple {
+  background-color: #820094;
+  height: 100%;
+}
+
 
 @media (max-width:768px) {
   .lcontainer {
@@ -168,8 +194,6 @@ main {
     padding: 0 15px;
   }
 }
-
-
 
 html {
   scroll-behavior: smooth;

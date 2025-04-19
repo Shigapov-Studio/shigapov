@@ -29,7 +29,14 @@ function Footer() {
                 <li><span className="icon-vk"></span> Вконтакте</li>
                 <li><span className="icon-Whatsapp"></span> Whatsapp</li>
               </ul>
-              <div className="footer__discuss">Обсудить <br/> проект <span className="icon-plus"></span></div>
+              <div className="footer__discuss">Обсудить <br/> проект <span className="icon-plus"></span>
+              <div className="rainbow">
+                <div className="rainbow__orange"></div>
+                <div className="rainbow__red"></div>
+                <div className="rainbow__purple"></div>
+              </div>
+
+              </div>
             </div>
             <div className="footer__right--middle">
               <ul>

@@ -6,6 +6,7 @@
 }
 
 .number {
+
   display: flex;
   flex-direction: column;
   animation-name: count;

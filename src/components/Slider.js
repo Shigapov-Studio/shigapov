@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import SliderButton from './SliderButton';
 import Counter from './Counter';
+import { motion } from "motion/react";
 
 function Slide1() {
   const isVisible = window.innerWidth > 1025;
@@ -9,11 +10,45 @@ function Slide1() {
   return (
     <div className="slide__content inner__container">
       <div className="slide__left">
-        <h1 className="slide__heading">Разработка <br /> сайтов под ключ</h1>
-        <p className="slide__left--text">
+        <h1 className="slide__heading"> 
+          <motion.span
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          >Разработка</motion.span>
+          <br /> 
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.3, ease: "easeOut" }}
+          >сайтов </motion.span>
+                    <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
+          >под </motion.span>
+                    <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.3, ease: "easeOut" }}
+          > ключ</motion.span>
+        </h1>
+        <motion.p className="slide__left--text"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}
+        
+        >
           Недорогие полнофункциональные решения<br /> для малого бизнеса и ИП
-        </p>
-        <SliderButton />
+        </motion.p>
+        <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.3, ease: "easeOut" }}
+        style={{display: 'flex'}}
+        >
+          <SliderButton />
+        </motion.div>
       </div>
       {isVisible && (
         <div className="slide__right">
@@ -221,14 +256,20 @@ const Slider = ({ autoPlayInterval = 6000 }) => {
       </div>
 
       <div className="buttons__container inner__container">
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0, duration: 0.1, ease: "easeOut" }}        
           className="prev-button slider__navigation--button icon-leftang"
           onClick={() => {
             prevSlide();
             resetAutoPlay();
           }}
         />
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.1, ease: "easeOut" }}        
           className="next-button slider__navigation--button icon-rightang"
           onClick={() => {
             nextSlide();
@@ -241,10 +282,13 @@ const Slider = ({ autoPlayInterval = 6000 }) => {
         {slides.map((_, i) => {
           const isActive = (currentIndex - 1 + slides.length) % slides.length === i;
           return (
-            <div
+            <motion.div
               className={`pagination__wrapper ${isActive ? "" : "disabled__pagination--wrapper"}`}
               key={i}
               onClick={() => handlePaginationClick(i + 1)}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1*i, duration: .3, ease: "easeOut" }}            
             >
               <div
                 className="pagination-item"
@@ -277,7 +321,7 @@ const Slider = ({ autoPlayInterval = 6000 }) => {
               >
                 {slideTexts[i] || `Slide ${i + 1}`}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

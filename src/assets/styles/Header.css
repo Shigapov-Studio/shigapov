@@ -21,6 +21,13 @@ header a {
     gap: 24px;
     font-weight: 300;
 }
+
+.header__navigation-list {
+    list-style-type: none;
+    display: flex;
+    gap: 2.4rem;
+}
+
 .header__phone {
     font-weight: 300;
 }

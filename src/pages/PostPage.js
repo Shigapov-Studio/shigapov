@@ -1,11 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import useHeaderStore from "../store/useHeaderStore";
 
-const PostPage = ({ headerHeight }) => {
+const PostPage = () => {
+  const headerHeight = useHeaderStore((state) => state.headerHeight);
+
   const { id } = useParams();
 
   return (
-    <div style={{ marginTop: headerHeight }}>
+    <div className="lcontainer" style={{ marginTop: `${headerHeight}px` }}>
       <h1>Пост {id}</h1>
     </div>
   );

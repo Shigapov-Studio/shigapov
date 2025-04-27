@@ -6,6 +6,7 @@ import AnimatedHeading from '../components/AnimatedHeading';
 import casesImg from '../assets/figure.svg';
 import solutionsImg from '../assets/figure2.svg';
 import useHeaderStore from "../store/useHeaderStore";
+import { Link } from "react-router";
 
 const Home = () => {
   const headerHeight = useHeaderStore((state) => state.headerHeight);
@@ -22,7 +23,8 @@ const Home = () => {
         <section
         className='cases__section'>
           <AnimatedHeading heading={'Кейсы'} img={casesImg} headingClass={'cases'}/>
-          <PostsList />
+          <PostsList visibles={6} />
+          <Link to='/posts' className='view-all'> Смотреть все<span className='icon-arr'></span></Link>
         </section>
       </div>
       <div className='outer__container'>

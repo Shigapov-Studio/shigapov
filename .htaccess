@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Если файл или директория существует, не переписываем URL
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Иначе перенаправляем на index.html
+  RewriteRule ^ index.html [L]
+</IfModule>

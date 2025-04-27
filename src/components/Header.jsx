@@ -3,11 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import useHeaderStore from "../store/useHeaderStore";
 import { motion } from "framer-motion";
 import _ from 'lodash';
+import Sidemenu from "./sidemenu";
 
 function Header() {
   const headerRef = useRef();
   const setHeaderHeight = useHeaderStore((state) => state.setHeaderHeight);
   const [isVisible, setVisible] = useState(true);
+  const [sideIsOpen, setSideOpen] = useState(false);
+
+  function toggleSide() {
+    setSideOpen(prev=>!prev);
+  }
 
   useEffect(()=>{
     if (headerRef.current) {
@@ -17,20 +23,36 @@ function Header() {
   }, [setHeaderHeight]);
 
   useEffect(() => {
-    let prevScrollY = 0;
-
+    let prevScrollY = window.scrollY;
+    let scrollDelta = 0;
+  
     const scrollHandler = _.throttle(() => {
-
-      if (window.scrollY > prevScrollY) {
-        setVisible(false);
-      } else {
+      const currentScrollY = window.scrollY;
+  
+      // Если пользователь в самом верху — всегда показываем хедер
+      if (currentScrollY === 0) {
         setVisible(true);
+        scrollDelta = 0;
+        prevScrollY = 0;
+        return;
       }
-      prevScrollY = window.scrollY;
-    }, 100); // Ограничение: 1 вызов каждые 100 мс
-
+  
+      const diff = currentScrollY - prevScrollY;
+      scrollDelta += diff;
+  
+      if (diff > 0 && scrollDelta > 150) {
+        setVisible(false); // Скроллим вниз более чем на 50px
+        scrollDelta = 0;
+      } else if (diff < 0 && scrollDelta < -150) {
+        setVisible(true); // Скроллим вверх более чем на 50px
+        scrollDelta = 0;
+      }
+  
+      prevScrollY = currentScrollY;
+    }, 100);
+  
     window.addEventListener('scroll', scrollHandler);
-
+  
     return () => window.removeEventListener('scroll', scrollHandler);
   }, []);
 
@@ -61,7 +83,7 @@ function Header() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.3, ease: "easeOut" }}
-            ><a href="">Кейсы</a></motion.li>
+            ><Link to="/posts">Кейсы</Link></motion.li>
             <motion.li
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,14 +111,16 @@ function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}                    
         className="header__phone" href="tel:+89118428490">8 911 842 84 90</motion.a>
-        <motion.div 
+        <motion.div
+        onClick={toggleSide} 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}                    
         className="hamburger__wrapper">
-          <span className="topline"></span>
-          <span className="bottomline"></span>
+          <span className={`topline ${ sideIsOpen&& 'activespan'}`}></span>
+          <span className={`topline ${ sideIsOpen&& 'activespan'}`}></span>
         </motion.div>
+        <Sidemenu toggleSide={toggleSide} sideIsOpen={sideIsOpen}/>
       </header>
     </motion.div>
   );

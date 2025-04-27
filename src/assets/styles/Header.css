@@ -14,12 +14,11 @@ header a {
 }
 
 .header__navigation {
-    flex: 1;
-    margin-left: 70px;
     font-size: 1.6rem;
     display: flex;
     gap: 24px;
     font-weight: 300;
+    margin: 0 auto;
 }
 
 .header__navigation-list {
@@ -38,8 +37,8 @@ header a {
 }
 
 .hamburger__wrapper {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     position: relative;
     margin-left: 70px;
@@ -47,12 +46,66 @@ header a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
 }
 
 .hamburger__wrapper span {
     width: 50px;
+    height: 0;
     border-top: 1px solid black;
+    transition: transform .2s;
+}
+
+.hamburger__wrapper span.activespan:first-child {
+    transform: translateY(8px) rotate(-45deg);
+}
+
+.hamburger__wrapper span.activespan:last-child {
+    transform: translateY(-8px) rotate(45deg);
+}
+
+.side-menu {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: -1;
+    top: -100svh;
+    height: 100svh;
+    transition: .2s;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 10rem;
+}
+
+.side-menu__content-wrapper {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.side-menu__content-wrapper p {
+    font-weight: 400;
+    font-size: 2.2rem;
+}
+
+.side-menu__nav {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.side-menu__menu {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    align-items: end;
+    overflow-y: auto;
+}
+
+.side-menu__menu-item a{
+    font-weight: 700;
+    font-size: 7rem;
 }
 
 @media (max-width: 1024px) {
@@ -74,9 +127,25 @@ header a {
         cursor: pointer;
         position: relative;
         margin-left: 70px;
-        gap: 10px;
+        gap: 12px;
+    }
+    .hamburger__wrapper span.activespan:first-child {
+        transform: translateY(6px) rotate(-45deg);
+    }
+    
+    .hamburger__wrapper span.activespan:last-child {
+        transform: translateY(-6px) rotate(45deg);
     }
     .hamburger__wrapper span {
         width: 30px;
+    }
+    .side-menu__menu-item a{
+        font-size: 3rem;
+    }
+    .side-menu__content-wrapper p {
+        font-size: 1.2rem;
+    }
+    .side-menu {
+        gap: 20px;
     }
 }

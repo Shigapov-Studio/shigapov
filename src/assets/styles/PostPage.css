@@ -10,3 +10,171 @@
 .postcontent div {
   font-size: 1.8rem;
 }
+
+.post__head {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-bottom: 7rem;
+}
+
+.post__head-top, .post__head-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 3rem 0;
+  align-items: end;
+}
+
+.go-back {
+  margin: 3rem 0;
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.post__head-top h1 {
+  font-size: 10rem;
+  font-weight: 700;
+  line-height: 10rem;
+}
+
+.post__head-top a {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  height: fit-content;
+  gap: 1.4rem;
+  font-family: 'Onest';
+}
+
+.post__head-top span {
+  font-size: 1.4rem;
+}
+
+.post__head-txt {
+  font-size: 1.8rem;
+  color: #637283;
+}
+
+.post__head-txt:last-child {
+  text-align: right;
+}
+
+.post__head-txt--black {
+  font-size: 1.8rem;
+  display: inline-block;
+  max-width: 50%;
+}
+
+.post__solution {
+  margin: 14rem 0;
+  display: flex;
+  gap: 22rem;
+  flex-direction: column;
+}
+
+.post__problem {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.post__problem-heading {
+  display: inline-block;
+  width: 100%;
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.post__problem-description {
+  display: inline-block;
+  width: 100%;
+  font-size: 1.8rem;
+}
+
+.examples {
+  background-color: #F4F6FA;
+  border-radius: 24px;
+  padding: 14px 0;
+}
+
+.examples__top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rem;
+  gap: 1.4rem;
+}
+
+/* .examples__top img:first-child {
+  width: 44%;
+}
+
+.examples__top img:last-child {
+  width: 20%;
+} */
+
+.examples__top img {
+  height: 100%;
+  width: auto;
+  max-width: 50%;
+}
+
+.examples__bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.related-posts {
+  padding-bottom: 4rem;
+  padding-top: 10rem;
+}
+
+.related-posts__heading {
+  font-weight: 700;
+  font-size: 13vw;
+  margin: 7rem 0;
+}
+
+@media (max-width: 1280px) {
+  .post__head-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .post__head-top h1 {
+    font-size: 8vw;
+    line-height: 8vw;
+  }
+  .post__head-bottom {
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+  .post__head-txt--black {
+    max-width: 100%;
+  }
+  .related-posts__heading {
+    font-size: 8vw;
+  }
+  .examples__bottom img {
+    width: 100%;
+  }
+  .post__problem {
+    gap: 2rem;
+  }
+}
+
+
+@media (max-width: 680px) {
+  .post__problem {
+    flex-direction: column;
+  }
+  .post__solution {
+    gap: 2rem;
+  }
+}

@@ -74,8 +74,8 @@
 
 .post__preview--href {
     position: absolute;
-    top: 25px;
-    right: 25px;
+    top: 2.5rem;
+    right: 2.5rem;
     display: inline-flex; 
     align-items: center; 
     justify-content: center; 
@@ -162,8 +162,28 @@
 }
 
 .button__additional:hover::after {
-    width: 300px; /* Размер градиента */
-    height: 300px;
+    width: 500px; /* Размер градиента */
+    height: 500px;
+  }
+
+  .view-all {
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 2.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-self: center;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .view-all span {
+    font-size: 1.6rem;
   }
 
 @media (max-width: 1366px) {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import PostPreview from './PostPreview';
+import Loader from './Loader';
 
-const PostsList = () => {
+const PostsList = ({ visibles, all = false }) => {
   const [posts, setPosts] = useState([]);
-  const [visiblePosts, setVisiblePosts] = useState(6);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -51,22 +51,26 @@ const PostsList = () => {
 
   return (
     <div className="cases__posts">
-      {loading && <div>Загружаем посты...</div>}
+      {loading && <Loader />}
       {error && <div>Ошибка: {error}</div>}
       {!loading && !error && (
-        <>
-          {posts.slice(0, visiblePosts).reverse().map((post, index) => (
-            <PostPreview
-              key={post.id}
-              post={post}
-              index={index}
-              getImageUrl={getImageUrl} // Передаём функцию как пропс
-            />
-          ))}
-          {visiblePosts < posts.length && posts.length > 6 && (
-            <button onClick={() => setVisiblePosts(posts.length)}>Смотреть все</button>
-          )}
-        </>
+        all
+          ? posts.map((post, index) => (
+              <PostPreview
+                key={post.id}
+                post={post}
+                index={index}
+                getImageUrl={getImageUrl}
+              />
+            ))
+          : posts.slice(0, visibles).reverse().map((post, index) => (
+              <PostPreview
+                key={post.id}
+                post={post}
+                index={index}
+                getImageUrl={getImageUrl}
+              />
+            ))
       )}
     </div>
   );

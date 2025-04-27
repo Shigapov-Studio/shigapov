@@ -7,7 +7,8 @@ import PostPage from './pages/PostPage';
 import Policy from './pages/Policy';
 import './App.css';
 import ScrollToTop from './components/ScrollToTop';
-
+import PostsPage from './pages/PostsPage';
+import FormPage from './pages/FormPage';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
             <Route path="contacts" element={<Contacts />} />
             <Route path="post/:id" element={<PostPage />} /> 
             <Route path="policy" element={<Policy />} />
+            <Route path="posts" element={<PostsPage />} />
+            <Route path='form' element={<FormPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-top: 46px;
+    margin: 46px 0;
     overflow: hidden;
 }
 
@@ -44,6 +44,7 @@
     overflow: hidden;
     position: relative;
     width: 100%;
+    display: flex;
 }
 
 .post__preview--img {
@@ -193,10 +194,10 @@
     .cases__img {
         width: 30%;
     }
-    .post__preview--additional {
+    /* .post__preview--additional {
         flex-direction: column;
         width: 100%;
-    }
+    } */
     .cases__section {
         margin-top: 30px;
     }

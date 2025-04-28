@@ -1,7 +1,6 @@
 <?php
 // Настройки
-// diasshigapov@yandex.ru
-$to = 'tmn98373@toaik.com'; // <-- сюда вставь свой email
+$to = 'info@shigapov.studio'; // <-- сюда вставь свой email
 $subject = 'Новая заявка с формы';
 
 // Проверка наличия обязательных данных

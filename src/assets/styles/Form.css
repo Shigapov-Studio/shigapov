@@ -114,6 +114,7 @@
 .form__duration-wrapper label:has(input:checked) {
   background-color: black;
   color: white;
+  border: 1px solid black;
 }
 
 .form__radio-duration {
@@ -228,11 +229,13 @@
   background-color: black;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color .2s
+  transition: background-color .2s;
+  border: 1px solid black;
 }
 
 .form__submit-wrapper input:hover {
   background-color: rgb(6, 0, 43);
+  border: 1px solid rgb(6, 0, 43);
 }
 
 .form__success {
@@ -240,4 +243,16 @@
   font-size: 1.8rem;
   font-weight: 600;
   color: #2DC100;
+}
+
+input:focus {
+  outline: none;
+  background-color: transparent !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Если проблема также с другими элементами (textarea, button) */
+textarea:focus, button:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }

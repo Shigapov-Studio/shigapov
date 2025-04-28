@@ -26,18 +26,6 @@
   align-items: end;
 }
 
-.go-back {
-  margin: 3rem 0;
-  display: flex;
-  gap: 1.4rem;
-  align-items: center;
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-
 .post__head-top h1 {
   font-size: 10rem;
   font-weight: 700;
@@ -122,7 +110,6 @@
 .examples__top img {
   height: 100%;
   width: auto;
-  max-width: 50%;
 }
 
 .examples__bottom {
@@ -141,10 +128,20 @@
   margin: 7rem 0;
 }
 
+.posts-page__heading {
+  font-size: 6rem;
+  font-weight: 700;
+}
+
 @media (max-width: 1280px) {
+  .post__head {
+    margin-bottom: 3rem;
+  }
   .post__head-top {
     flex-direction: column;
     gap: 2rem;
+    align-items: start;
+    margin: 2rem 0;
   }
   .post__head-top h1 {
     font-size: 8vw;
@@ -171,6 +168,12 @@
 
 
 @media (max-width: 680px) {
+  .post__solution {
+    margin: 3rem 0;
+  }
+  .examples__top {
+    flex-direction: column;
+  }
   .post__problem {
     flex-direction: column;
   }

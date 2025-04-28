@@ -4,6 +4,7 @@ import useHeaderStore from "../store/useHeaderStore";
 import PostsList from "../components/PostList";
 import LazyLoad from "../components/LazyLoad";
 import Loader from "../components/Loader";
+import BreadCrumb from "../components/BreadCrumb";
 
 const PostPage = () => {
   const headerHeight = useHeaderStore((state) => state.headerHeight);
@@ -60,7 +61,7 @@ const PostPage = () => {
   return (
     <>
       <div style={{marginTop: headerHeight}} className="lcontainer">
-        <Link to="/posts" className="go-back"><span className="icon-left"></span>Кейсы</Link>
+        <BreadCrumb href={'/posts'} text={'Кейсы'} />
         <div className="post__head">
           <div className="post__head-top">
             <h1>{title}</h1>

@@ -11,14 +11,14 @@ const PostPreview = ({ post, getImageUrl, index }) => {
     viewport={{ once: true }} // Анимация срабатывает только один раз
     >
       <div className='post__preview--top'>
-        <div className="post__preview--wrapper">
+        <Link to={`/post/${post.id}`} className="post__preview--wrapper">
           <img
             loading="lazy"
             className="post__preview--img"
             src={getImageUrl(post)}
             alt={post.title.rendered || 'Пост'}
           />
-        </div>
+        </Link>
         <Link to={`/post/${post.id}`}>
           <motion.h2
             initial={{ opacity: 0, y: 10 }} // Начальное состояние: прозрачный и смещен вниз

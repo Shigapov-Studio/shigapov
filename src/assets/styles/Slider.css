@@ -3,7 +3,6 @@
     border-radius: var(--brr);
     padding-bottom: 40px;
     margin-top: 20px;
-    min-height: 80vh;
 }
 
 .slide__content {

@@ -41,10 +41,10 @@ function Header() {
       scrollDelta += diff;
   
       if (diff > 0 && scrollDelta > 150) {
-        setVisible(false); // Скроллим вниз более чем на 50px
+        setVisible(false); // Скроллим вниз более чем на 150px
         scrollDelta = 0;
       } else if (diff < 0 && scrollDelta < -150) {
-        setVisible(true); // Скроллим вверх более чем на 50px
+        setVisible(true); // Скроллим вверх более чем на 150px
         scrollDelta = 0;
       }
   
@@ -61,10 +61,11 @@ function Header() {
       ref={headerRef}
       className="lcontainer"
       style={{
-        background: '#fff0',
+        // backgroundColor: '#fff0',
         position: 'fixed',
         top: 0,
         left: 0,
+        backdropFilter: window.innerWidth < 770 ? 'blur(4px)' : '',
         width: '100%',
         zIndex: 5,
         transition: '.2s',

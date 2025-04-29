@@ -99,18 +99,12 @@
   gap: 1.4rem;
 }
 
-/* .examples__top img:first-child {
-  width: 44%;
-}
 
-.examples__top img:last-child {
-  width: 20%;
+
+/* .examples__top img {
+  width: 100%;
+  height: auto;
 } */
-
-.examples__top img {
-  height: 100%;
-  width: auto;
-}
 
 .examples__bottom {
   display: flex;

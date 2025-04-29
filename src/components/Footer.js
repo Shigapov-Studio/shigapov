@@ -1,7 +1,14 @@
-import { Link } from "react-router"
+import { Link } from "react-router";
+import { useModalStore } from "../store/modalStore";
+import FormModal from "./FormModal";
 
 function Footer() {
   const currentYear = new Date().getFullYear();
+  const openModal = useModalStore((state) => state.openModal)
+
+  const handleClick = () => {
+    openModal(<FormModal/>)
+  }
   return (
     <footer>
       <div className="lcontainer">
@@ -29,7 +36,7 @@ function Footer() {
                 <li><span className="icon-vk"></span> Вконтакте</li>
                 <li><span className="icon-Whatsapp"></span> Whatsapp</li>
               </ul>
-              <div className="footer__discuss">Обсудить <br/> проект <span className="icon-plus"></span>
+              <div onClick={handleClick}  className="footer__discuss">Обсудить <br/> проект <span className="icon-plus"></span>
               <div className="rainbow">
                 <div className="rainbow__orange"></div>
                 <div className="rainbow__red"></div>

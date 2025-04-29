@@ -27,8 +27,17 @@ header a {
     gap: 2.4rem;
 }
 
-.header__phone {
-    font-weight: 300;
+.header__contact {
+    font-size: 1.6rem;
+    color: white;
+    background-color: black;
+    padding: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.header__contact:hover {
+    background-color: rgb(12, 0, 42);
 }
 
 .header__logo {
@@ -122,7 +131,7 @@ header a {
         padding-top: 24px;
         padding: 24px 0;
     }
-    .header__phone {
+    .header__contact {
         display: none;
     }
     .hamburger__wrapper {

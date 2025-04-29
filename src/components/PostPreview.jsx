@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const PostPreview = ({ post, getImageUrl, index }) => {
-  const delayMultiplier = index%2 === 0? 0.2 : 0.4;
+  const delayMultiplier = index%2 === 0? 0 : 0.2;
   return (
     <motion.div className="post__preview"
     initial={{ opacity: 0, y: 50 }} // Начальное состояние: прозрачный и смещен вниз

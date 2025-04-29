@@ -37,7 +37,7 @@ const PostPage = () => {
     return () => controller.abort();
   }, [id]); // Добавили id в зависимости
 
-  if (loading) return <div className="lcontainer" style={{ marginTop: `${headerHeight}px` }}>Загрузка...</div>;
+  if (loading) return <div className="lcontainer" style={{ marginTop: `${headerHeight}px` }}><Loader /></div>;
   if (error) return <div className="lcontainer" style={{ marginTop: `${headerHeight}px` }}>Ошибка: {error}</div>;
   if (!post) return null;
 
@@ -135,22 +135,3 @@ const PostPage = () => {
 };
 
 export default PostPage;
-
-
-
-// {featuredImage && (
-//   <img 
-//     src={featuredImage} 
-//     alt={post.title.rendered} 
-//     style={{ maxWidth: '100%', height: 'auto' }}
-//   />
-// )}
-// {desctopImg && (
-//   <img src={desctopImg} alt={post.title.rendered} />
-// )}
-// {mobImg && (
-//   <img src={mobImg} alt={post.title.rendered} />
-// )}
-// {screen && (
-//   <img src={screen} alt={post.title.rendered} />
-// )}

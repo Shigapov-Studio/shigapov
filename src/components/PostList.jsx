@@ -7,6 +7,7 @@ const PostsList = ({ visibles, all = false }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [visiblePosts, setVisiblePosts] = useState(6);
 
   // Загружаем посты
   useEffect(() => {
@@ -49,13 +50,19 @@ const PostsList = ({ visibles, all = false }) => {
     }
   };
 
+
+  // подгруз постов по 6 или максимум
+  const loadMorePosts = () => {
+    setVisiblePosts((prev) => Math.min(prev + 6, posts.length));
+  };
+
   return (
     <div className="cases__posts">
       {loading && <Loader />}
       {error && <div>Ошибка: {error}</div>}
       {!loading && !error && (
         all
-          ? posts.map((post, index) => (
+          ? posts.slice(0, visiblePosts).map((post, index) => (
               <PostPreview
                 key={post.id}
                 post={post}
@@ -63,7 +70,7 @@ const PostsList = ({ visibles, all = false }) => {
                 getImageUrl={getImageUrl}
               />
             ))
-          : posts.slice(0, visibles).reverse().map((post, index) => (
+          : posts.slice(0, visibles).map((post, index) => (
               <PostPreview
                 key={post.id}
                 post={post}
@@ -72,6 +79,7 @@ const PostsList = ({ visibles, all = false }) => {
               />
             ))
       )}
+      {posts.length > visiblePosts && all && <button onClick={loadMorePosts} className='cases__load-more'>Показать еще <span className='icon-arr'></span></button>}
     </div>
   );
 };

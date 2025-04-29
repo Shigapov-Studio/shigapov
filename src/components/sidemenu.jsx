@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const menuItems = [
   {
     name: "Кейсы",
-    link: "/cases",
+    link: "/posts",
     content: "Наши успешные проекты и кейсы"
   },
   {

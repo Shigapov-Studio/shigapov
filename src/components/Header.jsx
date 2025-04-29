@@ -4,12 +4,22 @@ import useHeaderStore from "../store/useHeaderStore";
 import { motion } from "framer-motion";
 import _ from 'lodash';
 import Sidemenu from "./sidemenu";
+import FormModal from "./FormModal";
+import { useModalStore } from "../store/modalStore";
+
+
 
 function Header() {
   const headerRef = useRef();
   const setHeaderHeight = useHeaderStore((state) => state.setHeaderHeight);
   const [isVisible, setVisible] = useState(true);
   const [sideIsOpen, setSideOpen] = useState(false);
+  const openModal = useModalStore((state) => state.openModal)
+
+  const handleClick = () => {
+    openModal(<FormModal/>)
+  }
+
 
   function toggleSide() {
     setSideOpen(prev=>!prev);
@@ -107,11 +117,12 @@ function Header() {
             ><Link to="/contacts">Контакты</Link></motion.li>
           </ul>
         </nav>
-        <motion.a 
+        <motion.div 
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}                    
-        className="header__phone" href="tel:+89118428490">8 911 842 84 90</motion.a>
+        transition={{ delay: 0.4, duration: 0.3, ease: "easeOut" }}   
+        onClick={handleClick}                 
+        className="header__contact">Обсудить проект</motion.div>
         <motion.div
         onClick={toggleSide} 
         initial={{ opacity: 0, y: 10 }}

@@ -85,12 +85,10 @@ footer {
   color: var(--textcolor);
   column-count: 2; /* Количество колонок */
   column-gap: 20px;
-  max-width: 500px;
 }
 
 .footer__right--top li span {
   display: flex;
-  width: 35px;
 }
 
 .footer__right--top li:nth-child(2) span {
@@ -110,15 +108,29 @@ footer {
 .footer__discuss {
   display: flex;
   justify-content: space-between;
+  gap: 1.6rem;
   align-items: stretch;
-  width: 180px;
   height: 100%;
   border-radius: 8px;
   background-color: black;
   color: white;
-  padding: 14px;
+  padding: 1.4rem 1.6rem;
+  padding-right: calc(1.6rem + 3%);
   font-size: 1.8rem;
   font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .2s;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.footer__discuss:hover {
+  transform: scale(1.02);
+}
+
+footer .rainbow {
+  width: 5%;
 }
 
 .footer__discuss span {
@@ -191,6 +203,9 @@ footer {
     gap: 20px;
     align-items: end;
    }
+   .footer__right--top ul {
+    align-self: start;
+   }
    .footer__mail {
     font-size: 4vw;
    }
@@ -222,7 +237,6 @@ footer {
     margin: 20px 0;
    }
    .footer__right--bottom {
-    max-width: 600px;
    }
 }
 
@@ -232,6 +246,11 @@ footer {
   }
   .footer__phone {
     font-size: 9vw;
+  }
+  .footer__top--right {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
   }
   .footer__right--top {
     flex-direction: column;

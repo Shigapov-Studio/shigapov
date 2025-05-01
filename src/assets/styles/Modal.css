@@ -1,0 +1,36 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  background-color: white;
+  z-index: 11;
+  overflow: auto;
+  /* animation: modal-appear .2s ease forwards; */
+}
+
+.modal__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 33px 0;
+}
+
+.modal__header span {
+  font-family: 'Unbounded';
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@keyframes modal-appear {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

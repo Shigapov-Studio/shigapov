@@ -1,8 +1,10 @@
 import React from "react";
+import useHeaderStore from "../store/useHeaderStore";
 
-const Policy = ({ headerHeight }) => {
+const Policy = () => {
+  const headerHeight = useHeaderStore((state) => state.headerHeight);
   return (
-    <div style={{ marginTop: headerHeight }}>
+    <div className="lcontainer" style={{ marginTop: headerHeight }}>
       <h1>Политика конфиденциальности</h1>
       <p>Здесь будет политика конфиденциальности</p>
     </div>

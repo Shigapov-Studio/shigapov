@@ -112,9 +112,10 @@ header a {
     overflow-y: auto;
 }
 
-.side-menu__menu-item a{
+.side-menu__menu-item p{
     font-weight: 700;
     font-size: 7rem;
+    cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -131,16 +132,16 @@ header a {
         padding-top: 24px;
         padding: 24px 0;
     }
-    .header__contact {
-        display: none;
-    }
     .hamburger__wrapper {
         width: 40px;
         height: 40px;
         cursor: pointer;
         position: relative;
-        margin-left: 70px;
+        margin-left: 14px;
         gap: 12px;
+    }
+    .header__contact {
+        padding: 14px;
     }
     .hamburger__wrapper span.activespan:first-child {
         transform: translateY(6px) rotate(-45deg);

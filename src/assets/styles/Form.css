@@ -290,9 +290,27 @@ textarea:focus, button:focus {
 
 }
 
+.what-to-do {
+  margin-bottom: 2.4rem;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical;
+}
+
+.what-to-do__wrapper {
+  width: 100%;
+}
+
+.form__captcha-wrapper {
+  margin-bottom: 2.4rem;
+}
+
 @media (max-width: 1366px) {
   .form__wrapper {
     flex-direction: column;
+  }
+  .form-modal__left p, .form-modal__left span {
+    display: none;
   }
 }
 

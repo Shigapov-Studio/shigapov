@@ -1,15 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PostPreview from './PostPreview';
 import Loader from './Loader';
 
-const PostsList = ({ visibles, all = false }) => {
+const PostsList = ({ visibles, all = false, random = false }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [visiblePosts, setVisiblePosts] = useState(6);
 
-  // Загружаем посты
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true);
@@ -26,14 +25,12 @@ const PostsList = ({ visibles, all = false }) => {
     return () => controller.abort();
   }, []);
 
-  // Отслеживаем ширину окна
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Функция для получения URL картинки
   const getImageUrl = (post) => {
     const featuredMediaArray = post._embedded?.['wp:featuredmedia'];
     if (!featuredMediaArray) return '/path/to/placeholder.jpg';
@@ -50,11 +47,21 @@ const PostsList = ({ visibles, all = false }) => {
     }
   };
 
-
-  // подгруз постов по 6 или максимум
   const loadMorePosts = () => {
     setVisiblePosts((prev) => Math.min(prev + 6, posts.length));
   };
+
+  // 🔀 Мемоизированный массив постов, рандомизированный при загрузке
+  const displayedPosts = useMemo(() => {
+    const postsToShow = [...posts]; // копируем массив
+    if (random) {
+      for (let i = postsToShow.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [postsToShow[i], postsToShow[j]] = [postsToShow[j], postsToShow[i]];
+      }
+    }
+    return postsToShow;
+  }, [posts, random]);
 
   return (
     <div className="cases__posts">
@@ -62,7 +69,7 @@ const PostsList = ({ visibles, all = false }) => {
       {error && <div>Ошибка: {error}</div>}
       {!loading && !error && (
         all
-          ? posts.slice(0, visiblePosts).map((post, index) => (
+          ? displayedPosts.slice(0, visiblePosts).map((post, index) => (
               <PostPreview
                 key={post.id}
                 post={post}
@@ -70,7 +77,7 @@ const PostsList = ({ visibles, all = false }) => {
                 getImageUrl={getImageUrl}
               />
             ))
-          : posts.slice(0, visibles).map((post, index) => (
+          : displayedPosts.slice(0, visibles).map((post, index) => (
               <PostPreview
                 key={post.id}
                 post={post}
@@ -79,7 +86,11 @@ const PostsList = ({ visibles, all = false }) => {
               />
             ))
       )}
-      {posts.length > visiblePosts && all && <button onClick={loadMorePosts} className='cases__load-more'>Показать еще <span className='icon-arr'></span></button>}
+      {displayedPosts.length > visiblePosts && all && (
+        <button onClick={loadMorePosts} className="cases__load-more">
+          Показать еще <span className="icon-arr"></span>
+        </button>
+      )}
     </div>
   );
 };

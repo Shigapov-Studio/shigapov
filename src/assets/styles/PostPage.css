@@ -97,9 +97,24 @@
   justify-content: space-between;
   margin-bottom: 12rem;
   gap: 1.4rem;
+  align-items: start;
 }
 
+.examples__additional {
+  width: 100%;
+}
 
+.examples__img-desc {
+  flex: 2;
+  width: 100%;
+  height: auto;
+}
+
+.examples__img-mob {
+  flex: 1;
+  width: 100%;
+  height: auto;
+}
 
 /* .examples__top img {
   width: 100%;

@@ -51,9 +51,9 @@ function Sidemenu({ toggleSide, sideIsOpen }) {
       {sideIsOpen && (
         <motion.div
           className="side-menu"
-          initial={{ top: "-100svh" }}
+          initial={{ top: "-100vh" }}
           animate={{ top: "0" }}
-          exit={{ top: "-100svh" }}
+          exit={{ top: "-100vh" }}
           transition={{ duration: 0.2, type: "tween", ease: "linear" }}
           style={{
             paddingTop: headerHeight,
@@ -72,9 +72,9 @@ function Sidemenu({ toggleSide, sideIsOpen }) {
                     duration: 0.2,
                     ease: "easeOut"
                   }}
-                  onMouseEnter={() => setActiveContent(item.content)}
+                  onMouseEnter={() => setActiveContent(item)}
                 >
-                  <a href={item.link}>{item.name}</a>
+                  <p>{item.name}</p>
                 </motion.li>
               ))}
             </ul>
@@ -87,13 +87,14 @@ function Sidemenu({ toggleSide, sideIsOpen }) {
             transition={{ duration: 0.2 }}
           >
             {activeContent && (
-              <motion.p
+              <motion.a
+                href={activeContent.link}
                 initial={{ y: 10 }}
                 animate={{ y: 0 }}
                 exit={{ y: 10 }}
               >
-                {activeContent}
-              </motion.p>
+                {activeContent.content}
+              </motion.a>
             )}
           </motion.div>
         </motion.div>
